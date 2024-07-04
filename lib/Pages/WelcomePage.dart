@@ -1,5 +1,7 @@
 import 'package:book_hunters/Components/MyButton.dart';
+import 'package:book_hunters/Pages/HomePage/HomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -86,7 +88,11 @@ class WelcomePage extends StatelessWidget {
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(10),
-            child: PrimaryButton(btnName: "CONTINUE", ontap: () {}),
+            child: PrimaryButton(
+                btnName: "CONTINUE",
+                ontap: () {
+                  Get.offAll(HomePage());
+                }),
           )
         ],
       ),
