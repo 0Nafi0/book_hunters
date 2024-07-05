@@ -1,4 +1,5 @@
 import 'package:book_hunters/Components/BookCard.dart';
+import 'package:book_hunters/Components/BookTile.dart';
 import 'package:book_hunters/Config/Colors.dart';
 import 'package:book_hunters/Models/Data.dart';
 import 'package:book_hunters/Pages/HomePage/Widgets/CategoryWidget.dart';
@@ -145,87 +146,15 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Column(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.2),
-                        child: Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(boxShadow: [
-                                BoxShadow(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .primary
-                                      .withOpacity(0.2),
-                                  spreadRadius: 2,
-                                  blurRadius: 8,
-                                  offset: Offset(2, 2),
-                                )
-                              ]),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                  "Assets/Images/never splite yje difference.jpg",
-                                  width: 100,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Rich dad poor dad | Book of the year",
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                  SizedBox(height: 4),
-                                  Text(
-                                    "By: Robert Kiyosaki",
-                                    style:
-                                        Theme.of(context).textTheme.labelMedium,
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    "Price: Free",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                        ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset("Assets/Icons/star.svg"),
-                                      Text(
-                                        "4.5",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium,
-                                      ),
-                                      Text(
-                                        "123 ratings",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
+                    children: bookData
+                        .map((e) => BookTile(
+                            title: e.title,
+                            coverUrl: e.coverUrl,
+                            author: e.author,
+                            price: e.price,
+                            rating: e.rating,
+                            totalRating: e.numberOfRating))
+                        .toList(),
                   )
                 ],
               ),

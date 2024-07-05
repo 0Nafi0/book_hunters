@@ -31,6 +31,7 @@ var bookData = [
     rating: "4.2",
     category: "Documentary",
     price: 100,
+    numberOfRating: 200,
   ),
   BookModel(
     id: "2",
@@ -43,6 +44,7 @@ var bookData = [
     rating: "4.2",
     category: "Documentary",
     price: 100,
+    numberOfRating: 300,
   ),
   BookModel(
     id: "3",
@@ -55,5 +57,6 @@ var bookData = [
     rating: "4.2",
     category: "Documentary",
     price: 100,
+    numberOfRating: 100,
   ),
 ];

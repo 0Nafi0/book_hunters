@@ -9,6 +9,7 @@ class BookModel {
   String rating;
   String category;
   int price;
+  int numberOfRating;
 
   BookModel({
     required this.id,
@@ -21,6 +22,7 @@ class BookModel {
     required this.rating,
     required this.category,
     required this.price,
+    required this.numberOfRating,
   });
 
   factory BookModel.fromJson(Map<String, dynamic> json) {
@@ -35,6 +37,7 @@ class BookModel {
       rating: json['rating']?.toInt() ?? 0,
       category: json['category'] ?? '',
       price: json['price']?.toInt() ?? 0,
+      numberOfRating: json['numberOfRating']?.toInt() ?? 0, // New field added
     );
   }
 
@@ -50,6 +53,7 @@ class BookModel {
       'rating': rating,
       'category': category,
       'price': price,
+      'numberOfRating': numberOfRating,
     };
   }
 }

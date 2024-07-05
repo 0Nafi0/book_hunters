@@ -41,6 +41,7 @@ class BookCard extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
+                maxLines: 1,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
