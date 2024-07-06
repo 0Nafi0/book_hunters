@@ -27,7 +27,7 @@ var bookData = [
     audioLen: "20",
     author: "Nafi Bin Zafar",
     aboutAuthor: "Hi my name is Nafi and I written this book",
-    coverUrl: "Assets/Images/boundaries.jpg",
+    coverUrl: "Assets/Images/boundraries.jpg",
     rating: "4.2",
     category: "Documentary",
     price: 100,

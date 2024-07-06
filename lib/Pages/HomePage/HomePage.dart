@@ -2,13 +2,12 @@ import 'package:book_hunters/Components/BookCard.dart';
 import 'package:book_hunters/Components/BookTile.dart';
 import 'package:book_hunters/Config/Colors.dart';
 import 'package:book_hunters/Models/Data.dart';
+import 'package:book_hunters/Pages/BookDetails/BookDetails.dart';
 import 'package:book_hunters/Pages/HomePage/Widgets/CategoryWidget.dart';
 import 'package:book_hunters/Pages/HomePage/Widgets/HomeAppBar.dart';
 import 'package:book_hunters/Pages/HomePage/Widgets/MyInputTextField.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,8 +29,8 @@ class HomePage extends StatelessWidget {
                       child: Column(
                         children: [
                           const SizedBox(height: 50),
-                          HomeAppBar(),
-                          SizedBox(height: 30),
+                          const HomeAppBar(),
+                          const SizedBox(height: 30),
                           Row(
                             children: [
                               Text(
@@ -56,7 +55,7 @@ class HomePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
                               Flexible(
@@ -73,9 +72,9 @@ class HomePage extends StatelessWidget {
                               )
                             ],
                           ),
-                          SizedBox(height: 20),
-                          MyInputTextField(),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
+                          const MyInputTextField(),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
                               Text(
@@ -130,12 +129,14 @@ class HomePage extends StatelessWidget {
                           .map((e) => BookCard(
                                 title: e.title,
                                 coverUrl: e.coverUrl,
-                                ontap: () {},
+                                ontap: () {
+                                  Get.to(const BookDetails());
+                                },
                               ))
                           .toList(),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Text(
@@ -144,7 +145,7 @@ class HomePage extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Column(
                     children: bookData
                         .map((e) => BookTile(
