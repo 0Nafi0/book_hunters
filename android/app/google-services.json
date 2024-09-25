@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "805985234676",
+    "project_id": "bookhunters-dee9c",
+    "storage_bucket": "bookhunters-dee9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805985234676:android:780558589df0d58ef8f8a1",
+        "android_client_info": {
+          "package_name": "com.example.book_hunters"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXfYW_kG_pu9uRE_VCBM5an541lLrbNnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
