@@ -2,6 +2,7 @@ import 'package:book_hunters/Components/BackButton.dart';
 import 'package:book_hunters/Components/BookTile.dart';
 import 'package:book_hunters/Components/MyButton.dart';
 import 'package:book_hunters/Config/Colors.dart';
+import 'package:book_hunters/Controller/AuthController.dart';
 import 'package:book_hunters/Models/Data.dart';
 import 'package:book_hunters/Pages/AddNewBook/AddNewBook.dart';
 import 'package:book_hunters/Pages/HomePage/HomePage.dart';
@@ -15,6 +16,8 @@ class Profilepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -41,20 +44,28 @@ class Profilepage extends StatelessWidget {
                       children: [
                         const SizedBox(width: 20),
                         Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const MyBackButton(),
-        Text(
-          "Profile",
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(color: Theme.of(context).colorScheme.background),
-        ),
-       const SizedBox(width: 70)
-      ],
-    ),
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const MyBackButton(),
+                            Text(
+                              "Profile",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background),
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  authController.signout();
+                                },
+                                icon: const Icon(Icons.exit_to_app)),
+                            const SizedBox(width: 70)
+                          ],
+                        ),
                         const SizedBox(height: 60),
                         Container(
                           padding: const EdgeInsets.all(10),
@@ -80,15 +91,21 @@ class Profilepage extends StatelessWidget {
                         const SizedBox(height: 20),
                         Text(
                           "Nafi Bin Zafar",
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: Theme.of(context).colorScheme.background,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                                color: Theme.of(context).colorScheme.background,
+                              ),
                         ),
                         Text(
                           "nafi.zafar@gmail.com",
-                          style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.onPrimaryContainer,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.labelMedium?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
+                                  ),
                         ),
                       ],
                     ),
@@ -110,19 +127,20 @@ class Profilepage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Column(
-                    children: 
-                      bookData.map(
-                        (e) => BookTile(
-                          title: e.title!,
-                          coverUrl: e.coverUrl!,
-                          author: e.author!,
-                          price: e.price!,
-                          pages: e.pages!,
-                          rating: e.rating!,
-                          totalRating: 12,
-                          ontap: () {},
-                        ),
-                      ).toList(),
+                    children: bookData
+                        .map(
+                          (e) => BookTile(
+                            title: e.title!,
+                            coverUrl: e.coverUrl!,
+                            author: e.author!,
+                            price: e.price!,
+                            pages: e.pages!,
+                            rating: e.rating!,
+                            totalRating: 12,
+                            ontap: () {},
+                          ),
+                        )
+                        .toList(),
                   ),
                 ],
               ),
